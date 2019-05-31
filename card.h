@@ -14,7 +14,7 @@ typedef enum{
 }shape;
 
 typedef enum{
-    A = 1, one, two, three, four, five, six, seven, eight, nine, ten, J, Q, K
+    A = 1, two, three, four, five, six, seven, eight, nine, ten, J, Q, K
 }allowedNum;
 
 typedef enum{

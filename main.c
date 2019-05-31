@@ -2,24 +2,27 @@
 #include "solitaireFunction.h"
 #include "stack.h"
 
+
 int main(){
-    stack *stock, *playArea[7], *outPutArea[4];
+    stack *stock, *playArea[7], *outputArea[4], *wasteArea;
     int loop;
     
-    allocStack(&stock, 54);
-    for(loop = 0; loop < 7; loop++)
-        allocStack(&playArea[loop], 25);
-    for(loop = 0; loop < 4; loop++)
-        allocStack(&outPutArea[loop], 15);
+    allocStack(&stock, MAX_STOCK__CARDNUM);
+    allocStack(&wasteArea, MAX_STOCK__CARDNUM);
+    for(loop = 0; loop < PLAYPILE_NUM; loop++)
+        allocStack(&playArea[loop], MAX_PLAYPILE_CARDNUM);
+    for(loop = 0; loop < OUTPUTPILE_NUM; loop++)
+        allocStack(&outputArea[loop], MAX_OUTPUTPILE_CARDNUM);
     
     
-    //create cards, mix cards and deal the cards
+    
+    //create cards, mix cards and deal the cards/
     makeCardAndPutToStock(stock);
     mixStock(stock);
     dealCards(stock, playArea);
-    showCurBoard(*stock, *playArea, *outPutArea);
+    showCurBoard(*stock, *wasteArea, playArea, outputArea);
    
-    
+/*
     while(!All the cards are set in the output area){
         //get movement input from user
         getMove();
@@ -32,4 +35,11 @@ int main(){
         moveCard();
         showCurBoard();
     }
+ 
+ 
+ 
+ free all of the stacks
+    */
+    
+    
 }
